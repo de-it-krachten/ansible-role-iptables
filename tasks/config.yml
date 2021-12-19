@@ -1,0 +1,16 @@
+---
+
+- name: Enable service
+  service:
+    name: "{{ iptables_service }}"
+    enabled: yes
+  when: iptables_persistent
+
+- name: Create /etc/iptables
+  file:
+    path: /etc/iptables
+    state: directory
+    owner: root
+    group: root
+    mode: '0750'
+  when: ansible_os_family == 'Debian'

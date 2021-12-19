@@ -1,0 +1,19 @@
+---
+
+- name: Populate service facts
+  service_facts:
+
+- name: Disable firewalld on RedHat
+  systemd:
+    name: firewalld
+    state: stopped
+    enabled: no
+    masked: yes
+  when:
+    - ansible_os_family == 'RedHat'
+    - ansible_facts.services['firewalld.service'] is defined
+
+- name: Install iptables
+  package:
+    name: "{{ iptables_packages }}"
+    state: present

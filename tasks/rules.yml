@@ -1,0 +1,52 @@
+---
+
+#- name: Flush all filters
+#  iptables:
+#    chain: "{{ item }}"
+#    flush: true
+#  become: yes
+#  loop: [ 'INPUT', 'OUTPUT', 'FORWARD' ]
+#  when: iptables_flush|bool
+#
+#- name: Allow incoming traffic on specific port
+#  iptables:
+#    chain: INPUT
+#    protocol: "{{ item.protocol | default('tcp') }}"
+#    destination_port: "{{ item.port }}"
+#    ctstate: NEW
+#    syn: match
+#    jump: ACCEPT
+#  become: yes
+#  loop: "{{ iptables_incoming_rules }}"
+#
+#- name: Define all filters
+#  iptables:
+#    chain: "{{ item.chain }}"
+#    jump: "{{ item.jump }}"
+#  become: yes
+#  loop: "{{ iptables_chains }}"
+#
+#- name: Allow related and established connections
+#  iptables:
+#    chain: INPUT
+#    ctstate: ESTABLISHED,RELATED
+#    jump: ACCEPT
+#  become: yes
+#
+#- name: Allow loopback traffic
+#  iptables:
+#    chain: INPUT
+#    jump: ACCEPT
+#    in_interface: lo
+#  become: yes
+#
+#- name: Allow incoming traffic on specific port
+#  iptables:
+#    chain: INPUT
+#    protocol: "{{ item.protocol | default('tcp') }}"
+#    destination_port: "{{ item.port }}"
+#    ctstate: NEW
+#    syn: match
+#    jump: ACCEPT
+#  become: yes
+#  loop: "{{ iptables_incoming_rules }}"

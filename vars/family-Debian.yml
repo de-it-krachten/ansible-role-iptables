@@ -1,0 +1,10 @@
+---
+
+iptables_packages:
+  - iptables
+  - iptables-persistent
+
+iptables_services:
+  - iptables-persistent
+
+iptables_state: /etc/iptables/rules.v4

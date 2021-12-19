@@ -1,0 +1,53 @@
+---
+
+- name: Start by flushing the active configuration
+  iptables:
+    flush: true
+  become: yes
+  when: iptables_flush|bool
+
+- name: Set the default policy for each chain
+  iptables:
+    chain: "{{ item.name }}"
+    policy: "{{ item.policy }}"
+  become: yes
+  loop: "{{ iptables_chains }}"
+
+- name: Allow related and established connections
+  iptables:
+    chain: INPUT
+    ctstate: ESTABLISHED,RELATED
+    jump: ACCEPT
+  become: yes
+
+- name: Allow incoming ICMP
+  iptables:
+    chain: INPUT
+    protocol: icmp
+    jump: ACCEPT
+  become: yes
+  when: iptables_allow_icmp
+
+- name: Allow loopback
+  iptables:
+    chain: INPUT
+    in_interface: lo
+    jump: ACCEPT
+  become: yes
+  when: iptables_allow_loopback
+
+- name: Allow SSH traffic
+  iptables:
+    chain: INPUT
+    protocol: "{{ item.protocol }}"
+    destination_port: "{{ item.port }}"
+    ctstate: NEW
+    syn: match
+    jump: ACCEPT
+  become: yes
+  loop: "{{ iptables_incoming_rules }}"
+
+- name: Save running rules to file
+  community.general.iptables_state:
+    state: saved
+    path: "{{ iptables_state }}"

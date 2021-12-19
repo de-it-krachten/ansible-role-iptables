@@ -1,0 +1,26 @@
+---
+
+# Set-up iptables from template
+iptables_setup: true
+
+# Set-up iptables in persistant manner
+iptables_persistent: true
+
+# Flush active rules before applying default set
+iptables_flush: false
+
+# Allow server to be ping'ed
+iptables_allow_icmp: true
+
+# Allow access using loopback to by-pass iptables
+iptables_allow_loopback: true
+
+# Default access
+iptables_chains:
+  - { name: OUTPUT, policy: ACCEPT }
+  - { name: INPUT, policy: DROP }
+  - { name: FORWARD, policy: DROP }
+
+# Default ports to be opened
+iptables_incoming_rules:
+  - { port: 22, protocol: tcp }

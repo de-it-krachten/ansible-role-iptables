@@ -1,0 +1,29 @@
+# Set iptables configuration
+
+# Flush everything
+{% if iptables_flush|bool %}
+iptables -F
+{% endif %}
+
+# Default policy
+{% for chain in iptables_chains %}
+iptables -P {{ chain.name }} {{ chain.policy }}
+{% endfor %}
+
+# Allow established inbound connections
+iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# Allow icmp
+{% if iptables_allow_icmp %}
+iptables -A INPUT -p icmp -j ACCEPT
+{% endif %}
+
+# Allow all loopback traffic
+{% if iptables_allow_loopback %}
+iptables -A INPUT -i lo -j ACCEPT
+{% endif %}
+
+# Allow inbound SSH connection
+{% for rule in iptables_incoming_rules %}
+iptables -A INPUT -p tcp -m state --state NEW -m {{ rule.protocol|default('tcp') }} --dport {{ rule.port }} -j ACCEPT
+{% endfor %}
