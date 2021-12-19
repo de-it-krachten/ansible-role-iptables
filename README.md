@@ -3,7 +3,8 @@
 
 # ansible-role-iptables
 
-Role to set-up iptables in a persistant manner
+Sets up iptables and applies a default rule set
+For RedHat/CentOS, it will disable firewalld.
 
 
 Platforms
@@ -23,8 +24,6 @@ Supported platforms
 Role Variables
 --------------
 <pre><code>
-
-
 # Set-up iptables from template
 iptables_setup: true
 
@@ -56,8 +55,6 @@ Example Playbook
 ----------------
 
 <pre><code>
-
-
 - name: Converge
   hosts: all
   vars:
