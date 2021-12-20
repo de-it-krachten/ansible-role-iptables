@@ -4,7 +4,7 @@
   service:
     name: "{{ iptables_service }}"
     enabled: yes
-  when: iptables_persistent
+  when: iptables_persistent and iptables_service is defined
 
 - name: Create /etc/iptables
   file:
