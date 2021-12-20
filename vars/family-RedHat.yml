@@ -4,7 +4,6 @@ iptables_packages:
   - iptables
   - iptables-services
 
-iptables_services:
-  - iptables
+iptables_service: iptables
 
 iptables_state: /etc/sysconfig/iptables

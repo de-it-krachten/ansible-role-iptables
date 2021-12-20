@@ -39,10 +39,10 @@
 - name: Allow SSH traffic
   iptables:
     chain: INPUT
-    protocol: "{{ item.protocol }}"
+    protocol: "{{ item.proto }}"
     destination_port: "{{ item.port }}"
-    ctstate: NEW
-    syn: match
+    ctstate: "{{ 'NEW' if item.proto == 'tcp' else omit }}"
+    syn: "{{ 'match' if item.proto == 'tcp' else omit }}"
     jump: ACCEPT
   become: yes
   loop: "{{ iptables_incoming_rules }}"
