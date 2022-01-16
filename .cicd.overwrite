@@ -1,0 +1,6 @@
+generic:
+  role_description: |
+    Sets up iptables and applies a default rule set
+    For RedHat/CentOS, it will disable firewalld.
+github:
+  fail_fast: false
