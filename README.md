@@ -14,6 +14,8 @@ Supported platforms
 
 - CentOS 7
 - CentOS 8
+- RockyLinux 8
+- AlmaLinux 8
 - Debian 10 (Buster)
 - Debian 11 (Bullseye)
 - Ubuntu 18.04 LTS
@@ -47,7 +49,7 @@ iptables_chains:
 
 # Default ports to be opened
 iptables_incoming_rules:
-  - { port: 22, protocol: tcp }
+  - { port: 22, proto: tcp }
 </pre></code>
 
 
@@ -55,12 +57,11 @@ Example Playbook
 ----------------
 
 <pre><code>
-- name: Converge
+- name: sample playbook for role 'iptables'
   hosts: all
   vars:
-    iptables_setup: true
   tasks:
-    - name: Include role 'ansible-role-iptables'
+    - name: Include role 'iptables'
       include_role:
-        name: ansible-role-iptables
+        name: iptables
 </pre></code>

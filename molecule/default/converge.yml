@@ -3,7 +3,6 @@
 - name: Converge
   hosts: all
   vars:
-    iptables_setup: true
   tasks:
     - name: Include role 'ansible-role-iptables'
       include_role:
