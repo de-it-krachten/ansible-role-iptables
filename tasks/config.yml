@@ -1,5 +1,18 @@
 ---
 
+- block:
+
+    - name: Check if {{ iptables_state }} exists
+      stat:
+        path: "{{ iptables_state }}"
+      register: _iptables_save
+
+    - name: Create /etc/iptables/rules-save is not present
+      command: /etc/init.d/iptables save
+      when: not _iptables_save.stat.exists
+
+  when: ansible_os_family == 'Alpine'
+
 - name: Enable service
   service:
     name: "{{ iptables_service }}"

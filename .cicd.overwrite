@@ -1,6 +1,20 @@
+---
+
+# General info
 generic:
   role_description: |
-    Sets up iptables and applies a default rule set
-    For RedHat/CentOS, it will disable firewalld.
-github:
-  fail_fast: false
+    Sets up iptables and applies a default rule set.<br>
+    For RedHat/CentOS, it will disable firewalld.<br>
+    On Alpine, it depends on the presence of OpenRC.
+
+# Supported platforms
+platforms:
+  alpine3:
+    name: Alpine 3
+    ci: true
+    supported: true
+    image: "robertdebock/alpine:latest"
+    pre_build_image: false
+    galaxy:
+      name: Alpine
+      version: all

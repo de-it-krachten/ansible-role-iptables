@@ -1,9 +1,12 @@
 ---
 
+# List of packages to install
 iptables_packages:
   - iptables
   - iptables-services
 
+# name of the iptables service
 iptables_service: iptables
 
+# File to write rules to/from
 iptables_state: /etc/sysconfig/iptables
