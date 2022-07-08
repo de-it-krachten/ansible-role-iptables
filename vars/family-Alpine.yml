@@ -3,10 +3,10 @@
 # List of packages to install
 iptables_packages:
   - iptables
-  - iptables-persistent
+  - iptables-openrc
 
 # name of the iptables service
-iptables_service: netfilter-persistent
+iptables_service: iptables
 
 # File to write rules to/from
-iptables_state: /etc/iptables/rules.v4
+iptables_state: /etc/iptables/rules-save

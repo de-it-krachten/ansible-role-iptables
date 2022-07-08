@@ -3,30 +3,37 @@
 
 # ansible-role-iptables
 
-Sets up iptables and applies a default rule set
-For RedHat/CentOS, it will disable firewalld.
+Sets up iptables and applies a default rule set.<br>
+For RedHat/CentOS, it will disable firewalld.<br>
+On Alpine, it depends on the presence of OpenRC.
 
 
-Platforms
---------------
+## Platforms
 
 Supported platforms
 
 - Red Hat Enterprise Linux 7<sup>1</sup>
 - Red Hat Enterprise Linux 8<sup>1</sup>
+- Red Hat Enterprise Linux 9<sup>1</sup>
 - CentOS 7
 - RockyLinux 8
-- AlmaLinux 8<sup>1</sup>
+- OracleLinux 8
+- AlmaLinux 8
+- AlmaLinux 9
 - Debian 10 (Buster)
 - Debian 11 (Bullseye)
 - Ubuntu 18.04 LTS
 - Ubuntu 20.04 LTS
+- Ubuntu 22.04 LTS
+- Fedora 35
+- Fedora 36
+- Alpine 3
 
 Note:
 <sup>1</sup> : no automated testing is performed on these platforms
 
-Role Variables
---------------
+## Role Variables
+### defaults/main.yml
 <pre><code>
 # Set-up iptables from template
 iptables_setup: true
@@ -54,10 +61,52 @@ iptables_incoming_rules:
   - { port: 22, proto: tcp }
 </pre></code>
 
+### vars/family-RedHat.yml
+<pre><code>
+# List of packages to install
+iptables_packages:
+  - iptables
+  - iptables-services
 
-Example Playbook
-----------------
+# name of the iptables service
+iptables_service: iptables
 
+# File to write rules to/from
+iptables_state: /etc/sysconfig/iptables
+</pre></code>
+
+### vars/family-Alpine.yml
+<pre><code>
+# List of packages to install
+iptables_packages:
+  - iptables
+  - iptables-openrc
+
+# name of the iptables service
+iptables_service: iptables
+
+# File to write rules to/from
+iptables_state: /etc/iptables/rules-save
+</pre></code>
+
+### vars/family-Debian.yml
+<pre><code>
+# List of packages to install
+iptables_packages:
+  - iptables
+  - iptables-persistent
+
+# name of the iptables service
+iptables_service: netfilter-persistent
+
+# File to write rules to/from
+iptables_state: /etc/iptables/rules.v4
+</pre></code>
+
+
+
+## Example Playbook
+### molecule/default/converge.yml
 <pre><code>
 - name: sample playbook for role 'iptables'
   hosts: all
