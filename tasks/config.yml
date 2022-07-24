@@ -1,6 +1,7 @@
 ---
 
-- block:
+- name: Alpine specific tasks
+  block:
 
     - name: Check if {{ iptables_state }} exists
       stat:
