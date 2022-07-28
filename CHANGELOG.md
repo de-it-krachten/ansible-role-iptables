@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.1.0...v1.2.0) (2022-07-28)
+
+
+### Features
+
+* Implement ansible-lint v6 support ([eeaa5b1](https://github.com/de-it-krachten/ansible-role-iptables/commit/eeaa5b1e24b3d4e0b64a9935f9bdd14047cf5876))
+
 # [1.1.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.0.0...v1.1.0) (2022-07-08)
 
 
