@@ -17,6 +17,7 @@ Supported platforms
 - Red Hat Enterprise Linux 9<sup>1</sup>
 - CentOS 7
 - RockyLinux 8
+- RockyLinux 9
 - OracleLinux 8
 - AlmaLinux 8
 - AlmaLinux 9
@@ -110,7 +111,7 @@ iptables_state: /etc/iptables/rules.v4
 <pre><code>
 - name: sample playbook for role 'iptables'
   hosts: all
-  vars:
+  become: "{{ molecule['converge']['become'] | default('yes') }}"
   tasks:
     - name: Include role 'iptables'
       include_role:
