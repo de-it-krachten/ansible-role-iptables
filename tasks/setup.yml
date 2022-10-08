@@ -47,7 +47,12 @@
   become: yes
   loop: "{{ iptables_incoming_rules }}"
 
+# - name: Save running rules to file (2.10+)
+#   community.general.iptables_state:
+#     state: saved
+#     path: "{{ iptables_state }}"
+#   when: ansible_version.full is version('2.10', '>=')
+
 - name: Save running rules to file
-  community.general.iptables_state:
-    state: saved
-    path: "{{ iptables_state }}"
+  ansible.builtin.shell: iptables-save > {{ iptables_state }}
+  changed_when: false

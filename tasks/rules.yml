@@ -6,7 +6,7 @@
     flush: true
   become: yes
   loop: [ 'INPUT', 'OUTPUT', 'FORWARD' ]
-  when: iptables_flush|bool
+  when: iptables_flush | bool
 
 - name: Allow incoming traffic on specific port
   ansible.builtin.iptables:
