@@ -1,27 +1,26 @@
 ---
 
 - name: Alpine specific tasks
+  when: ansible_os_family == 'Alpine'
   block:
 
-    - name: Check if {{ iptables_state }} exists
-      stat:
+    - name: Check if iptables state file exists
+      ansible.builtin.stat:
         path: "{{ iptables_state }}"
       register: _iptables_save
 
     - name: Create /etc/iptables/rules-save is not present
-      command: /etc/init.d/iptables save
+      ansible.builtin.command: /etc/init.d/iptables save
       when: not _iptables_save.stat.exists
 
-  when: ansible_os_family == 'Alpine'
-
 - name: Enable service
-  service:
+  ansible.builtin.service:
     name: "{{ iptables_service }}"
     enabled: yes
   when: iptables_persistent and iptables_service is defined
 
 - name: Create /etc/iptables
-  file:
+  ansible.builtin.file:
     path: /etc/iptables
     state: directory
     owner: root

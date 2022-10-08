@@ -1,7 +1,7 @@
 ---
 
 - name: Load variables based on OS type
-  include_vars: "{{ lookup('first_found', params) }}"
+  ansible.builtin.include_vars: "{{ lookup('first_found', params) }}"
   vars:
     params:
       files:
@@ -13,7 +13,10 @@
       paths:
         - 'vars'
 
-- include_tasks: install.yml
-- include_tasks: config.yml
-- include_tasks: setup.yml
-  when: iptables_setup|bool
+- name: Include install.yml
+  ansible.builtin.include_tasks: install.yml
+- name: Include config.yml
+  ansible.builtin.include_tasks: config.yml
+- name: Include setup.yml
+  ansible.builtin.include_tasks: setup.yml
+  when: iptables_setup | bool

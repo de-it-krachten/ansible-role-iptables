@@ -1,27 +1,27 @@
 ---
 
 - name: Start by flushing the active configuration
-  iptables:
+  ansible.builtin.iptables:
     flush: true
   become: yes
-  when: iptables_flush|bool
+  when: iptables_flush | bool
 
 - name: Set the default policy for each chain
-  iptables:
+  ansible.builtin.iptables:
     chain: "{{ item.name }}"
     policy: "{{ item.policy }}"
   become: yes
   loop: "{{ iptables_chains }}"
 
 - name: Allow related and established connections
-  iptables:
+  ansible.builtin.iptables:
     chain: INPUT
     ctstate: ESTABLISHED,RELATED
     jump: ACCEPT
   become: yes
 
 - name: Allow incoming ICMP
-  iptables:
+  ansible.builtin.iptables:
     chain: INPUT
     protocol: icmp
     jump: ACCEPT
@@ -29,7 +29,7 @@
   when: iptables_allow_icmp
 
 - name: Allow loopback
-  iptables:
+  ansible.builtin.iptables:
     chain: INPUT
     in_interface: lo
     jump: ACCEPT
@@ -37,7 +37,7 @@
   when: iptables_allow_loopback
 
 - name: Allow SSH traffic
-  iptables:
+  ansible.builtin.iptables:
     chain: INPUT
     protocol: "{{ item.proto }}"
     destination_port: "{{ item.port }}"
