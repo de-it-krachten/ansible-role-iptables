@@ -8,6 +8,16 @@ For RedHat/CentOS, it will disable firewalld.<br>
 On Alpine, it depends on the presence of OpenRC.
 
 
+
+## Dependencies
+
+#### Roles
+None
+
+#### Collections
+- community.general
+- community.general
+
 ## Platforms
 
 Supported platforms
@@ -62,6 +72,7 @@ iptables_incoming_rules:
   - { port: 22, proto: tcp }
 </pre></code>
 
+
 ### vars/family-RedHat.yml
 <pre><code>
 # List of packages to install
@@ -114,6 +125,6 @@ iptables_state: /etc/iptables/rules.v4
   become: "{{ molecule['converge']['become'] | default('yes') }}"
   tasks:
     - name: Include role 'iptables'
-      include_role:
+      ansible.builtin.include_role:
         name: iptables
 </pre></code>
