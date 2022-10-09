@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.2.0...v1.3.0) (2022-10-09)
+
+
+### Features
+
+* Move to FQCN ([4c57d16](https://github.com/de-it-krachten/ansible-role-iptables/commit/4c57d16bfcf89ba7535e0709d8d4de57d0d056ea))
+* Update CI to latest standards ([b3d96c7](https://github.com/de-it-krachten/ansible-role-iptables/commit/b3d96c77f80e75d334ade8a5eb942c3610245d5e))
+
 # [1.2.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.1.0...v1.2.0) (2022-07-28)
 
 
