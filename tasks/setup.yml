@@ -6,7 +6,7 @@
   become: yes
   when: iptables_flush | bool
 
-- name: Set the default policy for each chain
+- name: Set the default policy for each chain  # noqa args[module]
   ansible.builtin.iptables:
     chain: "{{ item.name }}"
     policy: "{{ item.policy }}"
@@ -36,7 +36,7 @@
   become: yes
   when: iptables_allow_loopback
 
-- name: Allow SSH traffic
+- name: Allow SSH traffic  # noqa args[module]
   ansible.builtin.iptables:
     chain: INPUT
     protocol: "{{ item.proto }}"

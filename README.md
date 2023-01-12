@@ -16,7 +16,6 @@ None
 
 #### Collections
 - community.general
-- community.general
 
 ## Platforms
 
@@ -29,6 +28,7 @@ Supported platforms
 - RockyLinux 8
 - RockyLinux 9
 - OracleLinux 8
+- OracleLinux 9
 - AlmaLinux 8
 - AlmaLinux 9
 - Debian 10 (Buster)
@@ -122,7 +122,7 @@ iptables_state: /etc/iptables/rules.v4
 <pre><code>
 - name: sample playbook for role 'iptables'
   hosts: all
-  become: "{{ molecule['converge']['become'] | default('yes') }}"
+  become: "yes"
   tasks:
     - name: Include role 'iptables'
       ansible.builtin.include_role:
