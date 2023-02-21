@@ -6,6 +6,17 @@
   become: yes
   when: iptables_flush | bool
 
+- name: Allow SSH traffic  # noqa args[module]
+  ansible.builtin.iptables:
+    chain: INPUT
+    protocol: "{{ item.proto }}"
+    destination_port: "{{ item.port }}"
+    ctstate: "{{ 'NEW' if item.proto == 'tcp' else omit }}"
+    syn: "{{ 'match' if item.proto == 'tcp' else omit }}"
+    jump: ACCEPT
+  become: yes
+  loop: "{{ iptables_incoming_rules }}"
+
 - name: Set the default policy for each chain  # noqa args[module]
   ansible.builtin.iptables:
     chain: "{{ item.name }}"
@@ -35,17 +46,6 @@
     jump: ACCEPT
   become: yes
   when: iptables_allow_loopback
-
-- name: Allow SSH traffic  # noqa args[module]
-  ansible.builtin.iptables:
-    chain: INPUT
-    protocol: "{{ item.proto }}"
-    destination_port: "{{ item.port }}"
-    ctstate: "{{ 'NEW' if item.proto == 'tcp' else omit }}"
-    syn: "{{ 'match' if item.proto == 'tcp' else omit }}"
-    jump: ACCEPT
-  become: yes
-  loop: "{{ iptables_incoming_rules }}"
 
 # - name: Save running rules to file (2.10+)
 #   community.general.iptables_state:
