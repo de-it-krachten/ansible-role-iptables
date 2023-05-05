@@ -11,6 +11,7 @@
 
     - name: Create /etc/iptables/rules-save is not present
       ansible.builtin.command: /etc/init.d/iptables save
+      changed_when: true
       when: not _iptables_save.stat.exists
 
 - name: Enable service
