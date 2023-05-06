@@ -36,8 +36,8 @@ Supported platforms
 - Ubuntu 18.04 LTS
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 35
 - Fedora 36
+- Fedora 37
 - Alpine 3
 
 Note:
@@ -73,20 +73,6 @@ iptables_incoming_rules:
 </pre></code>
 
 
-### vars/family-RedHat.yml
-<pre><code>
-# List of packages to install
-iptables_packages:
-  - iptables
-  - iptables-services
-
-# name of the iptables service
-iptables_service: iptables
-
-# File to write rules to/from
-iptables_state: /etc/sysconfig/iptables
-</pre></code>
-
 ### vars/family-Alpine.yml
 <pre><code>
 # List of packages to install
@@ -113,6 +99,20 @@ iptables_service: netfilter-persistent
 
 # File to write rules to/from
 iptables_state: /etc/iptables/rules.v4
+</pre></code>
+
+### vars/family-RedHat.yml
+<pre><code>
+# List of packages to install
+iptables_packages:
+  - iptables
+  - iptables-services
+
+# name of the iptables service
+iptables_service: iptables
+
+# File to write rules to/from
+iptables_state: /etc/sysconfig/iptables
 </pre></code>
 
 
