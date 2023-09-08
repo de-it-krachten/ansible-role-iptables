@@ -31,13 +31,13 @@ Supported platforms
 - OracleLinux 9
 - AlmaLinux 8
 - AlmaLinux 9
-- Debian 10 (Buster)
+- Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
-- Ubuntu 18.04 LTS
+- Debian 12 (Bookworm)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 36
 - Fedora 37
+- Fedora 38
 - Alpine 3
 
 Note:
@@ -72,8 +72,7 @@ iptables_incoming_rules:
   - { port: 22, proto: tcp }
 </pre></code>
 
-
-### vars/family-Alpine.yml
+### defaults/family-Alpine.yml
 <pre><code>
 # List of packages to install
 iptables_packages:
@@ -87,7 +86,7 @@ iptables_service: iptables
 iptables_state: /etc/iptables/rules-save
 </pre></code>
 
-### vars/family-Debian.yml
+### defaults/family-Debian.yml
 <pre><code>
 # List of packages to install
 iptables_packages:
@@ -101,7 +100,7 @@ iptables_service: netfilter-persistent
 iptables_state: /etc/iptables/rules.v4
 </pre></code>
 
-### vars/family-RedHat.yml
+### defaults/family-RedHat.yml
 <pre><code>
 # List of packages to install
 iptables_packages:
@@ -114,6 +113,7 @@ iptables_service: iptables
 # File to write rules to/from
 iptables_state: /etc/sysconfig/iptables
 </pre></code>
+
 
 
 
