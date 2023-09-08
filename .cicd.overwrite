@@ -12,3 +12,9 @@ platforms:
   alpine3:
     ci: true
     supported: true
+  opensuse15:
+    ci: false
+    supported: false
+  sles15:
+    ci: false
+    supported: false
