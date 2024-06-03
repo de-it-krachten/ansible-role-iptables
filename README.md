@@ -15,7 +15,7 @@ On Alpine, it depends on the presence of OpenRC.
 None
 
 #### Collections
-- community.general
+None
 
 ## Platforms
 
@@ -31,13 +31,13 @@ Supported platforms
 - OracleLinux 9
 - AlmaLinux 8
 - AlmaLinux 9
-- Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
 - Debian 12 (Bookworm)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 37
-- Fedora 38
+- Ubuntu 24.04 LTS
+- Fedora 39
+- Fedora 40
 - Alpine 3
 
 Note:
@@ -122,7 +122,7 @@ iptables_state: /etc/sysconfig/iptables
 <pre><code>
 - name: sample playbook for role 'iptables'
   hosts: all
-  become: "yes"
+  become: 'yes'
   tasks:
     - name: Include role 'iptables'
       ansible.builtin.include_role:
