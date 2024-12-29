@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.5.0...v1.6.0) (2024-12-29)
+
+
+### Features
+
+* Update supported platforms & CI ([8804b78](https://github.com/de-it-krachten/ansible-role-iptables/commit/8804b7818ef05d7531ab1f35fd72da6efe8fd1ce))
+
 # [1.5.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.4.0...v1.5.0) (2024-06-03)
 
 
