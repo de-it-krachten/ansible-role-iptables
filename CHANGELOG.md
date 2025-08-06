@@ -1,3 +1,14 @@
+# [1.7.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.6.0...v1.7.0) (2025-08-06)
+
+
+### Features
+
+* Add support for AlmaLinux 10 ([feec928](https://github.com/de-it-krachten/ansible-role-iptables/commit/feec928f390865852c45fefaf015e632408b5ae5))
+* Add support for Debian 13 (Trixie) ([e1c65e2](https://github.com/de-it-krachten/ansible-role-iptables/commit/e1c65e2d715b71d45767ecead4b99f3650d1f96c))
+* Add support for OracleLinux 10 ([fc448d9](https://github.com/de-it-krachten/ansible-role-iptables/commit/fc448d9a235da09faeebee7ea98b896874f90ba2))
+* Add support for Red Hat Enterprise Linux 10 ([8e2e05c](https://github.com/de-it-krachten/ansible-role-iptables/commit/8e2e05cde3cce603ec5f21887683be20097b1d49))
+* Add support for RockyLinux 10 ([8d5213b](https://github.com/de-it-krachten/ansible-role-iptables/commit/8d5213b5714f97c50f774fa0ec7093a4250f85ee))
+
 # [1.6.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.5.0...v1.6.0) (2024-12-29)
 
 
