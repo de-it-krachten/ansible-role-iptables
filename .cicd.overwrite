@@ -9,12 +9,10 @@ generic:
 
 # Supported platforms
 platforms:
-  alpine3:
-    ci: true
+  ubuntu2004:
     supported: true
-  opensuse15:
-    ci: false
-    supported: false
-  sles15:
-    ci: false
-    supported: false
+    ci: true
+  alpine3:
+    supported: true
+    ci: true
+
