@@ -1,3 +1,11 @@
+# [1.8.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.7.0...v1.8.0) (2026-03-15)
+
+
+### Features
+
+* Added support for Fedora 43 ([05fc33c](https://github.com/de-it-krachten/ansible-role-iptables/commit/05fc33c3a6a1692717630b507b036e7020fda77a))
+* Drop support for Fedora 41 ([0c13e3d](https://github.com/de-it-krachten/ansible-role-iptables/commit/0c13e3d50f2c699f7479ddd1ffde5d42fddf8c8c))
+
 # [1.7.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.6.0...v1.7.0) (2025-08-06)
 
 
