@@ -1,3 +1,18 @@
+# [1.9.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.8.0...v1.9.0) (2026-07-24)
+
+
+### Bug Fixes
+
+* Standarize vars.yml ([60cc2ae](https://github.com/de-it-krachten/ansible-role-iptables/commit/60cc2ae12316e2cfad78f532ecde7880dd3ba9a5))
+
+
+### Features
+
+* Add support for ansible-core 2.20+ ([33665e1](https://github.com/de-it-krachten/ansible-role-iptables/commit/33665e14898fdfb4be822cbfaacbbf16422ad968))
+* Added support for Fedora 44 ([3cefe70](https://github.com/de-it-krachten/ansible-role-iptables/commit/3cefe70ab55f2e115b39fcc5c7a2cba5b317ee88))
+* Added support for Ubuntu 26.04 LTS ([fa5d7a9](https://github.com/de-it-krachten/ansible-role-iptables/commit/fa5d7a91b7749da548e3b444c488c37d15a9f1ff))
+* Drop support for Fedora 42 ([3922e12](https://github.com/de-it-krachten/ansible-role-iptables/commit/3922e121ffa76934af2e4b1eebeb3d57129e3c40))
+
 # [1.8.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.7.0...v1.8.0) (2026-03-15)
 
 
