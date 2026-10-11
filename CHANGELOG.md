@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.9.0...v1.10.0) (2026-10-11)
+
+
+### Features
+
+* Drop support for Debian 11 (Bullseye) ([109aad0](https://github.com/de-it-krachten/ansible-role-iptables/commit/109aad006fa3e04573293c31bdb16275072dd23a))
+
 # [1.9.0](https://github.com/de-it-krachten/ansible-role-iptables/compare/v1.8.0...v1.9.0) (2026-07-24)
 
 
