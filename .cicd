@@ -28,7 +28,7 @@ platforms:
         cgroupns_mode: host
       podman:
         pre_build_image: true
-        privileged: false
+        privileged: true
         volumes:
           - /sys/fs/cgroup:/sys/fs/cgroup:ro
         extra_opts:
